@@ -41,3 +41,6 @@ vue create -p dcloudio/uni-preset-vue my-project
 Preset options
 select uni-app template, for example "Hello uni-app"
 
+### use less css style, lang='less'
+![less error](src/static/lessError.jpg)
+

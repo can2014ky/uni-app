@@ -1,0 +1,1 @@
+<view class="mine-ctn"><view class="_div">我的</view><view data-event-opts="{{[['tap',[['setting',['$event']]]]]}}" bindtap="__e" class="_div">设置</view></view>
