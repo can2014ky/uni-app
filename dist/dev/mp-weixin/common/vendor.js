@@ -32580,6 +32580,130 @@ function randomFillSync (buf, offset, size) {
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ 3), __webpack_require__(/*! ./../process/browser.js */ 39)))
 
+/***/ }),
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */
+/*!****************************!*\
+  !*** ./src/api/request.js ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getLogin = void 0;
+
+var _http = __webpack_require__(/*! ./http.js */ 196);
+
+var getLogin = function getLogin(params) {
+  return (0, _http.get)('/login', params);
+};
+
+exports.getLogin = getLogin;
+
+/***/ }),
+/* 196 */
+/*!*************************!*\
+  !*** ./src/api/http.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.post = exports.get = void 0;
+
+var _config = _interopRequireDefault(__webpack_require__(/*! ./config.js */ 197));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function request(method, url) {
+  var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  var resolve = arguments.length > 3 ? arguments[3] : undefined;
+  var reject = arguments.length > 4 ? arguments[4] : undefined;
+  uni.showLoading({
+    'title': '加载中...'
+  });
+  var options = {
+    method: method,
+    url: "".concat(_config.default).concat(url),
+    header: 'application/json;charset=UTF-8',
+    data: params
+  };
+  uni.request(options).then(function (res) {
+    uni.hideLoading();
+    resolve(res[1].data);
+  }).catch(function (error) {
+    uni.hideLoading();
+    reject(error);
+  });
+}
+
+var get = function get(url, params) {
+  return new Promise(function (resolve, reject) {
+    request('GET', url, params, resolve, reject);
+  });
+};
+
+exports.get = get;
+
+var post = function post(url, params) {
+  return new Promise(function (resolve, reject) {
+    request('POST', url, params, resolve, reject);
+  });
+};
+
+exports.post = post;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 197 */
+/*!***************************!*\
+  !*** ./src/api/config.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var baseURL = '';
+
+switch ("development") {
+  case 'test':
+    baseURL = 'http://59.110.153.57:9900/leniao-web';
+    break;
+
+  case 'development':
+    baseURL = 'http://59.110.153.57:9912/leniao-web';
+    break;
+
+  case 'production':
+    baseURL = 'https://leniao.kuaipeilian.com/leniao-web';
+    break;
+
+  default:
+    baseURL = '';
+    break;
+}
+
+var _default = baseURL;
+exports.default = _default;
+
 /***/ })
 ]]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

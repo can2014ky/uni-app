@@ -1,15 +1,12 @@
-
-.index-ctn {
-	text-align: center;
-	height: 400rpx;
+.mine-ctn {
+  font-size: 32rpx;
 }
-.logo {
-	height: 200rpx;
-	width: 200rpx;
-	margin-top: 200rpx;
+.mine-ctn input {
+  border: 1px solid #ccc;
+  margin-bottom: 10rpx;
+  width: 600rpx;
 }
-.title {
-	font-size: 36rpx;
-	color: #8f8f94;
+.mine-ctn .setting {
+  margin-top: 100rpx;
 }
 
