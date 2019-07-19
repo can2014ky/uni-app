@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { getLogin } from '../../api/request.js'
+import api from '../../api/request.js'
 import { constants } from 'crypto';
 export default {
 	data() {
@@ -29,7 +29,7 @@ export default {
 		},
 		async login() {
 			const params = {mobile: this.mobile, smsCode: this.smsCode}
-			const res = await getLogin(params);
+			const res = await api.getLogin(params);
 			console.log('login:', res)
 			const {data, status} = res;
 			if(status) {
